@@ -16,6 +16,7 @@ frameworkVersion: '2'
 provider:
   name: aliyun
   runtime: nodejs12
+  credentials: ~/.aliyuncli/credentials
 
 plugins:
   - serverless-aliyun-function-compute

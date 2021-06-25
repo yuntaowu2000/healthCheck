@@ -19,13 +19,17 @@ jobs:
         npm install -g serverless
         serverless plugin install --name serverless-aliyun-function-compute
         npm install
+    - name: config credentials
+      run: |
+        mkdir ~/.aliyuncli
+        touch ~/.aliyuncli/credentials
+        echo "[default]" > ~/.aliyuncli/credentials
+        echo "aliyun_access_key_secret = ${{ secrets.ACCESS_KEY_SECRET }}" > ~/.aliyuncli/credentials
+        echo "aliyun_access_key_id = ${{ secrets.ACCESS_KEY_ID }}" > ~/.aliyuncli/credentials
+        echo "aliyun_account_id = ${{secrets.ACCOUNT_ID}}" > ~/.aliyuncli/credentials
     - name: Deploy
-      run: serverless deploy
-      env:
-        # endpoint: "oss-cn-hongkong.aliyuncs.com"
-        account_id: ${{secrets.ACCOUNT_ID}}
-        access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-        access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+      run: |
+        serverless deploy
     - name: Invoke
       run: serverless invoke --function first
 
