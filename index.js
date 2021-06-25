@@ -6,5 +6,5 @@ exports.hello = (event, context, callback) => {
     body: JSON.stringify({ message: 'Hello!' }),
   };
 
-  callback(null, response);
+  callback(null, response); 
 };
