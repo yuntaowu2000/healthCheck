@@ -17,6 +17,7 @@ jobs:
     - name: Build Blog
       run: |
         npm install -g serverless
+        serverless plugin install --name serverless-aliyun-function-compute
         npm install
     - name: Deploy
       run: serverless deploy
