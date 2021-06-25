@@ -23,7 +23,7 @@ jobs:
       run: |
         mkdir .jsonfiles
         touch .jsonfiles/server.json
-        echo ${{secrets.SERVER_LIST}} >> .jsonfiles/server.json
+        echo "${{secrets.SERVER_LIST}}" >> .jsonfiles/server.json
     - name: config credentials
       run: |
         mkdir ~/.aliyuncli
