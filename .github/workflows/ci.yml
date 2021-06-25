@@ -24,9 +24,9 @@ jobs:
         mkdir ~/.aliyuncli
         touch ~/.aliyuncli/credentials
         echo "[default]" > ~/.aliyuncli/credentials
-        echo "aliyun_access_key_secret = ${{ secrets.ACCESS_KEY_SECRET }}" > ~/.aliyuncli/credentials
-        echo "aliyun_access_key_id = ${{ secrets.ACCESS_KEY_ID }}" > ~/.aliyuncli/credentials
-        echo "aliyun_account_id = ${{secrets.ACCOUNT_ID}}" > ~/.aliyuncli/credentials
+        echo "aliyun_access_key_secret = ${{ secrets.ACCESS_KEY_SECRET }}" >> ~/.aliyuncli/credentials
+        echo "aliyun_access_key_id = ${{ secrets.ACCESS_KEY_ID }}" >> ~/.aliyuncli/credentials
+        echo "aliyun_account_id = ${{secrets.ACCOUNT_ID}}" >> ~/.aliyuncli/credentials
     - name: Deploy
       run: |
         serverless deploy
