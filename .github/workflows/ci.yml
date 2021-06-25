@@ -20,7 +20,7 @@ jobs:
         npm install
     - name: Deploy
       run: serverless deploy
-      with:
+      env:
         # endpoint: "oss-cn-hongkong.aliyuncs.com"
         account_id: ${{secrets.ACCOUNT_ID}}
         access-key-id: ${{ secrets.ACCESS_KEY_ID }}
