@@ -34,3 +34,9 @@ functions:
       - http:
           path: /foo
           method: get
+  check:
+    handler: index.check
+    events:
+      - http:
+          path: /check
+          method: get
