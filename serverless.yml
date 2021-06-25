@@ -28,12 +28,6 @@ package:
     - .git/**
 
 functions:
-  hello:
-    handler: index.hello
-    events:
-      - http:
-          path: /foo
-          method: get
   check:
     handler: index.check
     events:

@@ -24,6 +24,10 @@ jobs:
         mkdir .jsonfiles
         touch .jsonfiles/server.json
         echo "${{secrets.SERVER_LIST}}" >> .jsonfiles/server.json
+    - name: write email config to json
+      run: |
+        touch .jsonfiles/email.json
+        echo "${{secrets.EMAIL_ID}}" >> .jsonfiles/email.json
     - name: config credentials
       run: |
         mkdir ~/.aliyuncli
