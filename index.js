@@ -36,13 +36,6 @@ exports.check = async (event, context, callback) => {
       subject: "Server connection failed",
       text: JSON.stringify(failed)
     });
-  } else {
-    await transporter.sendMail({
-      from: emailObj.user,
-      to: emailObj.to,
-      subject: "Server connection test finished",
-      text: "success"
-    });
   }
 
   callback(null, JSON.stringify(failed));
