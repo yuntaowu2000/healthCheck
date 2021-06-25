@@ -21,10 +21,15 @@ exports.check = async (event, context, callback) => {
   let result = [];
   let failed = [];
   for (let sd of jsonObj) {
-    const res = await agent.head(sd.host).connect(sd.ip);
-    result.push({[sd.host] : res.statusCode});
-    if (res.statusCode != 200) {
-      let f = {"name" : sd.name, "host" : sd.host, "ip" : sd.ip, "status code" : res.statusCode};
+    try {
+      const res = await agent.head(sd.host).connect(sd.ip);
+      result.push({[sd.host] : res.statusCode});
+      if (res.statusCode != 200) {
+        let f = {"name" : sd.name, "host" : sd.host, "ip" : sd.ip, "status" : res.statusCode};
+        failed.push(f);
+      }
+    } catch(err) {
+      let f = {"name" : sd.name, "host" : sd.host, "ip" : sd.ip, "status" : err};
       failed.push(f);
     }
   }
