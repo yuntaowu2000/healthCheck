@@ -30,7 +30,3 @@ package:
 functions:
   check:
     handler: index.check
-    events:
-      - http:
-          path: /check
-          method: get
