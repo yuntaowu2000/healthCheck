@@ -31,6 +31,6 @@ jobs:
       run: |
         serverless deploy
     - name: Invoke
-      run: serverless invoke --function first
+      run: serverless invoke --function hello
 
     
