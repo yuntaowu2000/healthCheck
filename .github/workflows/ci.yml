@@ -1,0 +1,31 @@
+name: mainWorkFlow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+    - name: Build Blog
+      run: |
+        npm install -g serverless
+        npm install
+    - name: Deploy
+      run: serverless deploy
+      with:
+        # endpoint: "oss-cn-hongkong.aliyuncs.com"
+        account_id: ${{secrets.ACCOUNT_ID}}
+        access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+        access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+    - name: Invoke
+      run: serverless invoke --function first
+
+    
