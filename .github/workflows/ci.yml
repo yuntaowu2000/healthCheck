@@ -19,6 +19,11 @@ jobs:
         npm install -g serverless
         serverless plugin install --name serverless-aliyun-function-compute
         npm install
+    - name: write servers to json
+      run: |
+        mkdir .jsonfiles
+        touch .jsonfiles/server.json
+        echo ${{secrets.SERVER_LIST}} >> .jsonfiles/server.json
     - name: config credentials
       run: |
         mkdir ~/.aliyuncli
@@ -31,6 +36,6 @@ jobs:
       run: |
         serverless deploy
     - name: Invoke
-      run: serverless invoke --function hello
+      run: serverless invoke --function check
 
     

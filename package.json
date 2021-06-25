@@ -10,5 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "serverless-aliyun-function-compute": "*"
+  },
+  "dependencies": {
+    "superagent": "^6.1.0"
   }
 }
