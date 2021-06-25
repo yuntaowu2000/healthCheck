@@ -15,6 +15,7 @@ frameworkVersion: '2'
 
 provider:
   name: aliyun
+  region: cn-hangzhou
   runtime: nodejs12
   credentials: ~/.aliyuncli/credentials
 
