@@ -18,6 +18,7 @@ provider:
   region: cn-hangzhou
   runtime: nodejs12
   credentials: ~/.aliyuncli/credentials
+  timeout: 60
 
 plugins:
   - serverless-aliyun-function-compute
