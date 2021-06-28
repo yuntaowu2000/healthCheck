@@ -22,6 +22,7 @@ exports.check = async (event, context, callback) => {
   let failed = [];
   for (let sd of jsonObj) {
     try {
+      console.log("try connecting: " + sd.host + " at " + sd.ip);
       const res = await agent.head(sd.host).connect(sd.ip);
       result.push({[sd.host] : res.statusCode});
       if (res.statusCode != 200) {
