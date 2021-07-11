@@ -18,13 +18,11 @@ const transporter = nodemailer.createTransport({
 })
 
 exports.check = async (event, context, callback) => {
-  let result = [];
   let failed = [];
   for (let sd of jsonObj) {
     try {
       console.log("try connecting: " + sd.host + " at " + sd.ip);
-      const res = await agent.head(sd.host).connect(sd.ip).timeout({response: 5000, deadline:5500}).retry(2);
-      result.push({[sd.host] : res.statusCode});
+      const res = await agent.head(sd.host).connect(sd.ip).timeout({response: 9000, deadline:10000}).retry(2);
       if (res.statusCode != 200) {
         let f = {"name" : sd.name, "host" : sd.host, "ip" : sd.ip, "status" : res.statusCode};
         failed.push(f);
