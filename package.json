@@ -12,6 +12,7 @@
     "serverless-aliyun-function-compute": "*"
   },
   "dependencies": {
+    "ioredis": "^5.0.4",
     "nodemailer": "^6.6.2",
     "superagent": "^6.1.0"
   }
