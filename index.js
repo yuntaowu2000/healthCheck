@@ -35,8 +35,8 @@ exports.check = async (event, context, callback) => {
           // this is the second failure
           failed.push(f);
         }
-        redis_cli.set(sd.name, "falied");
-        redis_cli.expire(sd.name, 7500); // 125 min
+        await redis_cli.set(sd.name, "falied");
+        await redis_cli.expire(sd.name, 7500); // 125 min
       }
     } catch(err) {
       let f = {"name" : sd.name, "host" : sd.host, "ip" : sd.ip, "status" : err};
@@ -45,8 +45,8 @@ exports.check = async (event, context, callback) => {
         // this is the second failure
         failed.push(f);
       }
-      redis_cli.set(sd.name, "falied");
-      redis_cli.expire(sd.name, 7500); // 125 min
+      await redis_cli.set(sd.name, "falied");
+      await redis_cli.expire(sd.name, 7500); // 125 min
     }
   }
   
