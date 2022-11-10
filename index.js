@@ -45,7 +45,7 @@ exports.check = async (event, context, callback) => {
         // this is the second failure
         failed.push(f);
       }
-      await redis_cli.set(sd.name, "falied");
+      await redis_cli.set(sd.name, "failed");
       await redis_cli.expire(sd.name, 7500); // 125 min
     }
   }
