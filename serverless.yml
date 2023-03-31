@@ -16,7 +16,6 @@ frameworkVersion: '3'
 provider:
   name: aliyun
   region: cn-hangzhou
-  runtime: nodejs12
   credentials: ~/.aliyuncli/credentials
   runtime: nodejs16
   timeout: 150
