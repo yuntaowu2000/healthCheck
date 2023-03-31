@@ -18,6 +18,7 @@ provider:
   region: cn-hangzhou
   runtime: nodejs12
   credentials: ~/.aliyuncli/credentials
+  runtime: nodejs16
   timeout: 150
 
 plugins:
