@@ -27,8 +27,8 @@ exports.check = async (event, context, callback) => {
   for (let sd of jsonObj) {
     try {
       console.log("try connecting: " + sd.host + " at " + sd.ip);
-      const res = await agent.head(sd.host).connect(sd.ip).timeout({response: 9000, deadline:10000}).retry(2);
-      if (res.statusCode != 200) {
+      const res = await agent.head(sd.host).connect(sd.ip).ok(res => res.status < 400).timeout({response: 9000, deadline:10000}).retry(2);
+      if (res.statusCode >= 400) {
         let f = {"name" : sd.name, "host" : sd.host, "ip" : sd.ip, "status" : res.statusCode};
         let prev_record = await redis_cli.get(sd.name);
         if (prev_record == "failed") {
