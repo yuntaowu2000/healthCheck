@@ -11,7 +11,7 @@
 
 service: health_check
 
-frameworkVersion: '3'
+frameworkVersion: '4'
 
 provider:
   name: aliyun
